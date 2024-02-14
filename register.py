@@ -176,3 +176,4 @@ Label(frame_mid, text="Already have an account?", font=("Arial", 14)).place(x=15
 Button(frame_mid, text="Log in", command=switch_to_login, font=("Arial", 14)).place(x=400, y=420)
 
 root.mainloop()
+########prratik is don####

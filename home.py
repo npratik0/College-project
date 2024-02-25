@@ -33,7 +33,6 @@
 
 from tkinter import *
 from tkinter import messagebox
-
 def instant_ride():
     selected_option.set("Instant Ride")
     instant_button.config(bg="#3b5998")
@@ -55,6 +54,11 @@ def next_page():
         root.destroy()
         import casualride
 
+def switch_to_login():
+    messagebox.showinfo("Success", "Successfully Logged Out")
+    root.destroy()  
+    import login
+
 root = Tk()
 root.title("Ride Booking App")
 
@@ -72,6 +76,10 @@ app_label.place(x=200, y=20)
 # Home label
 home_label = Label(root, text="Home", font=("Arial", 16), fg="#FFA500", bg="#f0f0f0")
 home_label.place(x=20, y=20)
+
+#logout button
+btn_logout = Button(root, text="Logout", font=("Arial", 16), bg="#FFA500", fg="white", padx=10, pady=5,command=switch_to_login)
+btn_logout.place(x=680, y=400)
 
 # Help button
 btn_help = Button(root, text="Help", font=("Arial", 16), bg="#FFA500", fg="white", padx=10, pady=5)

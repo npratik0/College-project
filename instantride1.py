@@ -1,5 +1,8 @@
 from tkinter import *
 import random
+from tkinter import messagebox
+import sqlite3
+
 
 def home():
     root.destroy()
@@ -8,11 +11,61 @@ def home():
 def book_ride():
     pickup_location = pickup.get()
     destination_location = destination.get()
+
+    # Check if pickup and destination are entered
+    if not pickup_location or not destination_location:
+        messagebox.showerror("Error", "Please enter both pickup and destination locations.")
+        return
+
+    # Check if a vehicle type is selected
+    if not vehicle_var.get():
+        messagebox.showerror("Error", "Please select a vehicle type.")
+        return
+
     vehicle_type = vehicle_var.get()
     distance = random.randint(1, 15)
     fare = distance * fare_rate[vehicle_type]
+
+    # Connect to the SQLite database
+    connection = sqlite3.connect('user_registration.db')
+    cursor = connection.cursor()
+
+    
+
+    # Commit the changes and close the connection
+    connection.commit()
+    connection.close()
+
     display_fare_window(pickup_location, destination_location, distance, fare, vehicle_type)
 
+    # Clear entry fields
+    pickup.delete(0, END)
+    destination.delete(0, END)
+
+    # Optionally, provide user feedback
+    messagebox.showinfo("Success", "Ride booked successfully!")
+
+def create_rides():
+    connection = sqlite3.connect('rides.db')
+    cursor = connection.cursor()
+
+    # Create a rides table
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS rides (
+            ride_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER,
+            pickup_location TEXT NOT NULL,
+            destination_location TEXT NOT NULL,
+            distance INTEGER,
+            fare INTEGER,
+            vehicle_type TEXT,
+            FOREIGN KEY (user_id) REFERENCES users (id)
+        )
+    ''')
+
+    # Commit the changes and close the connection
+    connection.commit()
+    connection.close()
 def display_fare_window(pickup_location, destination_location, distance, fare, vehicle_type):
     fare_window =Toplevel()
     fare_window.title("Fare Information")
@@ -36,6 +89,10 @@ def display_fare_window(pickup_location, destination_location, distance, fare, v
 root =Tk()
 root.title("Ride booking app")
 root.geometry("800x700")
+
+# Set the background color of the root window
+root.configure(bg="maroon")  # Set the color code as per your choice
+
 
 lbl =Label(root, text="Ride Booking App", font=("Arial Bold", 40)).place(x=100, y=50)
 lbl_1 =Label(root, text="Instant Ride", font=("Arial", 10)).place(x=10, y=150)
@@ -63,8 +120,8 @@ help_button.place(x=5, y=650)
 # Define fare rates for bike and car
 fare_rate = {"Bike": 100, "Car": 200}
 
-book_button = Button(root, text="Book", command=lambda: book_ride())
-book_button.place(x=760, y=650)
+book_button = Button(root, text="Book", command=lambda: book_ride(),font=("Helvetica", 14), bg="#007bff", fg="#ffffff")
+book_button.place(x=400, y=500)
 
 home_button = Button(root, text="Home", command=home)
 home_button.place(x=760, y=150)

@@ -43,14 +43,47 @@
 from tkinter import *
 from customtkinter import *
 
+from tkinter import messagebox
+import sqlite3
+
 def register():
     # Code for registering a new user goes here
     root.destroy()
     import register
 
-def login():
+def home():
     root.destroy()
     import home
+
+def login():
+    # Get the entered username and password
+    entered_username = username_entry.get()
+    entered_password = password_entry.get()
+
+# Check if the username or password is empty
+    if not entered_username or not entered_password:
+        messagebox.showerror("Error", "Please enter both username and password.")
+        return
+    
+    # Connect to the SQLite database
+    connection = sqlite3.connect('user_registration.db')
+    cursor = connection.cursor()
+
+    # Query to check if the entered credentials are valid
+    cursor.execute("SELECT * FROM users WHERE name=? AND password=?", (entered_username, entered_password))
+    user = cursor.fetchone()
+
+    # Close the connection
+    connection.close()
+
+    if user:
+        # If user exists, login is successful
+        messagebox.showinfo("Success", "Login Successful!")
+        home()
+    else:
+        # If user doesn't exist or credentials are incorrect, show an error message
+        messagebox.showerror("Error", "Invalid username or password. Please try again.")
+
 
 root = Tk()
 root.title("Login Page")
@@ -65,7 +98,7 @@ image_label.config(image=photo)
 image_label.image = photo
 
 login_label = Label(root, text="Log in", font=("Helvetica", 24), fg="#333333")
-login_label.place(x=850, y=50)
+login_label.place(x=910, y=50)
 
 # Custom frame with styling on the right side
 frame_mid = CTkFrame(root, width=500, height=500, bg_color="#f8f9fa", border_color="#adb5bd")
@@ -89,7 +122,7 @@ password_entry.place(x=200, y=100)
 
 # Login Button
 login_button = Button(frame_mid, text="Log in", command=login, font=("Helvetica", 14), bg="#007bff", fg="#ffffff")
-login_button.place(x=200, y=200)
+login_button.place(x=270, y=150)
 
 # "Don't have an account?" Label
 donthaveaccount_label = Label(frame_mid, text="Don't have an account?", font=("Helvetica", 12), fg="#495057", bg="#f8f9fa")

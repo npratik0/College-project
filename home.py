@@ -1,36 +1,3 @@
-# from tkinter import *
-# root =Tk()
-# root.title("Ride Booking App")
-
-
-# def instant_ride():
-#     root.destroy()
-#     import instantride1
-
-# def chartered_ride():
-#     root.destroy
-#     import casualride
-
-# # Create the Ride Booking App text and home button
-# app_label =Label(root, text="Ride Booking App", font=("Helvetica", 24, "bold"))
-# app_label.grid(row=0, column=3, columnspan=2)
-# home_button =Button(root, text="Home", command="")
-# home_button.grid(row=2, column=0)
-
-# # Create the instant ride and charted ride buttons
-# instant_button =Button(root, text="Instant Ride", font=("Helvetica", 18, "bold"),command=instant_ride)
-# instant_button.grid(row=5, column=3, columnspan=2, padx=10, pady=10)
-# charted_button =Button(root, text="Charted Ride", font=("Helvetica", 18, "bold"),command=chartered_ride)
-# charted_button.grid(row=5, column=7, columnspan=2, padx=10, pady=10)
-
-# # Create the Next button
-# next_button =Button(root, text="Next", font=("Helvetica", 18, "bold"))
-# next_button.grid(row=11, column=10, pady=10)
-
-# btn_help=Button(root,text="Help",font=("Arial",20),command="").grid(row=11,column=0)
-
-# root.mainloop()
-
 from tkinter import *
 from tkinter import messagebox
 def instant_ride():

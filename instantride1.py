@@ -1,8 +1,7 @@
 from tkinter import *
-import random
 from tkinter import messagebox
+import random
 import sqlite3
-
 
 def home():
     root.destroy()
@@ -29,8 +28,6 @@ def book_ride():
     # Connect to the SQLite database
     connection = sqlite3.connect('user_registration.db')
     cursor = connection.cursor()
-
-    
 
     # Commit the changes and close the connection
     connection.commit()
@@ -66,64 +63,70 @@ def create_rides():
     # Commit the changes and close the connection
     connection.commit()
     connection.close()
+
 def display_fare_window(pickup_location, destination_location, distance, fare, vehicle_type):
-    fare_window =Toplevel()
+    fare_window = Toplevel()
     fare_window.title("Fare Information")
     fare_window.geometry("400x200")
 
-    Label(fare_window, text="Pickup Location:").pack()
-    Label(fare_window, text=pickup_location).pack()
+    Label(fare_window, text="Pickup Location:", font=("Arial", 12)).pack()
+    Label(fare_window, text=pickup_location, font=("Arial", 12)).pack()
 
-    Label(fare_window, text="Destination:").pack()
-    Label(fare_window, text=destination_location).pack()
+    Label(fare_window, text="Destination:", font=("Arial", 12)).pack()
+    Label(fare_window, text=destination_location, font=("Arial", 12)).pack()
 
-    Label(fare_window, text="Distance (km):").pack()
-    Label(fare_window, text=distance).pack()
+    Label(fare_window, text="Distance (km):", font=("Arial", 12)).pack()
+    Label(fare_window, text=distance, font=("Arial", 12)).pack()
 
-    Label(fare_window, text="Vehicle Type:").pack()
-    Label(fare_window, text=vehicle_type).pack()
+    Label(fare_window, text="Vehicle Type:", font=("Arial", 12)).pack()
+    Label(fare_window, text=vehicle_type, font=("Arial", 12)).pack()
 
-    Label(fare_window, text="Fare:").pack()
-    Label(fare_window, text=f"{fare} NRP").pack()
+    Label(fare_window, text="Fare:", font=("Arial", 12)).pack()
+    Label(fare_window, text=f"{fare} NRP", font=("Arial", 12)).pack()
 
-root =Tk()
+root = Tk()
 root.title("Ride booking app")
 root.geometry("800x700")
 
 # Set the background color of the root window
-root.configure(bg="maroon")  # Set the color code as per your choice
+root.configure(bg="white")  # Change background color to white
 
+lbl = Label(root, text="Ride Booking App", font=("Arial Bold", 40), bg="white", fg="#007bff")  # Change text color to blue
+lbl.place(x=100, y=50)
+lbl_1 = Label(root, text="Instant Ride", font=("Arial", 10), bg="white", fg="#007bff")  # Change text color to blue
+lbl_1.place(x=10, y=150)
 
-lbl =Label(root, text="Ride Booking App", font=("Arial Bold", 40)).place(x=100, y=50)
-lbl_1 =Label(root, text="Instant Ride", font=("Arial", 10)).place(x=10, y=150)
-
-vehicle_label = Label(root, text="Select your vehicle type", font=("Arial", 20)).place(x=100, y=220)
+vehicle_label = Label(root, text="Select your vehicle type", font=("Arial", 20), bg="white", fg="#007bff")  # Change text color to blue
+vehicle_label.place(x=100, y=220)
 
 # Create a variable to store the selected vehicle type
 vehicle_var = StringVar()
 # Create an OptionMenu widget to select between bike and car
-vehicle_option_menu = OptionMenu(root, vehicle_var, "Bike", "Car")
+vehicle_option_menu = OptionMenu(root, vehicle_var, "", "Bike", "Car")
+vehicle_option_menu.config(width=10)
 vehicle_option_menu.place(x=450, y=220)
 
-pickup_label = Label(root, text="Pickup location", font=("Arial", 20)).place(x=100, y=360)
-destination_label = Label(root, text="Destination", font=("Arial", 20)).place(x=100, y=415)
+pickup_label = Label(root, text="Pickup location", font=("Arial", 20), bg="white", fg="#007bff")  # Change text color to blue
+pickup_label.place(x=100, y=360)
+destination_label = Label(root, text="Destination", font=("Arial", 20), bg="white", fg="#007bff")  # Change text color to blue
+destination_label.place(x=100, y=415)
 
-pickup = Entry(root, width=60)
+pickup = Entry(root, width=40)
 pickup.place(x=300, y=365, height=35)
 
-destination = Entry(root, width=60)
+destination = Entry(root, width=40)
 destination.place(x=300, y=420, height=35)
 
-help_button = Button(root, text="Help", command=lambda: print("Help"))
+help_button = Button(root, text="Help", command=lambda: print("Help"), bg="#007bff", fg="white")  # Change button color to blue and text color to white
 help_button.place(x=5, y=650)
 
 # Define fare rates for bike and car
 fare_rate = {"Bike": 100, "Car": 200}
 
-book_button = Button(root, text="Book", command=lambda: book_ride(),font=("Helvetica", 14), bg="#007bff", fg="#ffffff")
+book_button = Button(root, text="Book", command=book_ride, font=("Arial", 14), bg="#007bff", fg="white")  # Change button color to blue and text color to white
 book_button.place(x=400, y=500)
 
-home_button = Button(root, text="Home", command=home)
+home_button = Button(root, text="Home", command=home, bg="#007bff", fg="white")  # Change button color to blue and text color to white
 home_button.place(x=760, y=150)
 
 root.mainloop()

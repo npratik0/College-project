@@ -89,14 +89,14 @@ root.title("Ride booking app")
 root.geometry("800x700")
 
 # Set the background color of the root window
-root.configure(bg="white")  # Change background color to white
+root.configure(bg="light blue")  # Change background color to white
 
-lbl = Label(root, text="Ride Booking App", font=("Arial Bold", 40), bg="white", fg="#007bff")  # Change text color to blue
+lbl = Label(root, text="Ride Booking App", font=("Arial Bold", 40), bg="white" ) 
 lbl.place(x=100, y=50)
-lbl_1 = Label(root, text="Instant Ride", font=("Arial", 10), bg="white", fg="#007bff")  # Change text color to blue
+lbl_1 = Label(root, text="Instant Ride", font=("Arial", 10), bg="white")  
 lbl_1.place(x=10, y=150)
 
-vehicle_label = Label(root, text="Select your vehicle type", font=("Arial", 20), bg="white", fg="#007bff")  # Change text color to blue
+vehicle_label = Label(root, text="Select your vehicle type", font=("Arial", 20), bg="white") 
 vehicle_label.place(x=100, y=220)
 
 # Create a variable to store the selected vehicle type
@@ -106,9 +106,9 @@ vehicle_option_menu = OptionMenu(root, vehicle_var, "", "Bike", "Car")
 vehicle_option_menu.config(width=10)
 vehicle_option_menu.place(x=450, y=220)
 
-pickup_label = Label(root, text="Pickup location", font=("Arial", 20), bg="white", fg="#007bff")  # Change text color to blue
+pickup_label = Label(root, text="Pickup location", font=("Arial", 20), bg="white")  
 pickup_label.place(x=100, y=360)
-destination_label = Label(root, text="Destination", font=("Arial", 20), bg="white", fg="#007bff")  # Change text color to blue
+destination_label = Label(root, text="Destination", font=("Arial", 20), bg="white")
 destination_label.place(x=100, y=415)
 
 pickup = Entry(root, width=40)

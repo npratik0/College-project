@@ -46,44 +46,44 @@ root.configure(bg="lightblue")  # Set background color
 
 # Entry and DateEntry widgets
 entry_pickuplocation = Entry(root, width=40)
-entry_pickuplocation.place(x=250, y=155)
+entry_pickuplocation.place(x=250, y=155,height=30)
 
 entry_destination = Entry(root, width=40)
-entry_destination.place(x=250, y=185)
+entry_destination.place(x=265, y=205,height=30)
 
 pickup_date = DateEntry(root, width=12, background='darkblue', foreground='white', borderwidth=2)
-pickup_date.place(x=250, y=225)
+pickup_date.place(x=250, y=255)
 
 return_date = DateEntry(root, width=12, background='darkblue', foreground='white', borderwidth=2)
-return_date.place(x=250, y=255)
+return_date.place(x=250, y=305)
 
 # Labels
 lbl_1 = Label(root, text="Ride Booking System", font=("Arial Bold", 40), bg="lightblue")
 lbl_1.place(x=100, y=5)
 
 lbl_2 = Label(root, text="Chartered Ride", font=("Arial", 15), bg="lightblue")
-lbl_2.place(x=0, y=70)
+lbl_2.place(x=10, y=100)
 
-lbl_pickuplocation = Label(root, text="Pickup Location", font=("Arial", 15), bg="lightblue")
+lbl_pickuplocation = Label(root, text="Pickup Location", font=("Arial", 20), bg="lightblue")
 lbl_pickuplocation.place(x=70, y=150)
 
-lbl_destination = Label(root, text="Destination", font=("Arial", 15), bg="lightblue")
-lbl_destination.place(x=70, y=180)
+lbl_destination = Label(root, text="Destination", font=("Arial", 20), bg="lightblue")
+lbl_destination.place(x=70, y=200)
 
-lbl_pickupdate = Label(root, text="Pickup Date", font=("Arial", 15), bg="lightblue")
-lbl_pickupdate.place(x=70, y=220)
+lbl_pickupdate = Label(root, text="Pickup Date", font=("Arial", 20), bg="lightblue")
+lbl_pickupdate.place(x=70, y=250)
 
-lbl_returndate = Label(root, text="Return Date", font=("Arial", 15), bg="lightblue")
-lbl_returndate.place(x=70, y=250)
+lbl_returndate = Label(root, text="Return Date", font=("Arial", 20), bg="lightblue")
+lbl_returndate.place(x=70, y=300)
 
 # Buttons
-btn_home = ttk.Button(root, text="Home", command=home, width=15)
-btn_home.place(x=680, y=70)
+home_button = Button(root, text="Home", command=home, bg="#007bff", fg="white", font=("Arial", 18))  # Change button color to blue and text color to white
+home_button.place(x=700, y=20)
 
-btn_book = ttk.Button(root, text="Book", command=book_ride, width=30)
-btn_book.place(x=400, y=500, anchor=CENTER)
+book_button = Button(root, text="Book", command=book_ride, bg="#007bff", fg="white", font=("Arial", 20))  # Change button color to blue and text color to white
+book_button.place(x=400, y=500)
 
-btn_help = ttk.Button(root, text="Help")
-btn_help.place(x=10, y=630)
+help_button = Button(root, text="Help", command=lambda: print("Help"), bg="#007bff", fg="white", font=("Arial", 20))  # Change button color to blue and text color to white
+help_button.place(x=5, y=650)
 
 root.mainloop()

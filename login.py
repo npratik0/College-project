@@ -55,6 +55,9 @@ photo = PhotoImage(file="loginimage.png")  # Load the image
 image_label.config(image=photo)
 image_label.image = photo
 
+app_label = Label(root, text="Ride Booking System", font=("Arial", 36, "bold"), fg="#333333", bg="#f0f0f0")
+app_label.place(x=300, y=20)
+
 
 
 # Custom frame with styling on the right side
@@ -101,7 +104,7 @@ def admin_login():
 
 #Admin login 
 admin_button = Button(frame_mid, text="Admin Log in", command=admin_login, font=("Helvetica", 14), bg="#007bff", fg="#ffffff")
-admin_button.place(x=300, y=450)
+admin_button.place(x=200, y=450)
 
 root.mainloop()
 

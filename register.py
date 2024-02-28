@@ -74,6 +74,9 @@ root = Tk()
 root.title("Register Page")
 root.geometry("1200x750")
 
+app_label = Label(root, text="Ride Booking System", font=("Arial", 36, "bold"), fg="#333333", bg="#f0f0f0")
+app_label.place(x=300, y=20)
+
 # Load and place an image on the left side
 image_label = Label(root)
 image_label.place(x=50, y=100)  # Adjust the position as needed
@@ -86,11 +89,11 @@ image_label.image = photo
 
 # Custom frame with styling on the right side
 frame_mid = CTkFrame(root, width=500, height=500, bg_color="#f8f9fa", border_color="#adb5bd")
-frame_mid.place(x=650, y=100)
+frame_mid.place(x=680, y=200)
 
 # Register label
-register_label = Label(root, text="Register", font=("Arial", 36, "bold"), fg="#333333")
-register_label.place(x=750, y=10)
+register_label = Label(root, text="Register", font=("Arial", 20, "bold"), fg="#333333")
+register_label.place(x=850, y=150)
 
 # Name
 Label(frame_mid, text="Name:", font=("Arial", 16)).place(x=50, y=50)
@@ -125,13 +128,13 @@ strength_meter = Label(frame_mid, text="", font=("Arial", 14))
 strength_meter.place(x=300, y=300)
 
 # Register Button
-Button(frame_mid, text="Register", command=register, font=("Arial", 16)).place(x=200, y=370)
+Button(frame_mid, text="Register", command=register,  bg="#007bff", fg="white",font=("Arial", 16)).place(x=200, y=370)
 
 # Already have an account label
 Label(frame_mid, text="Already have an account?", font=("Arial", 14)).place(x=150, y=420)
 
 # Switch to Login Button
-Button(frame_mid, text="Log in", command=switch_to_login, font=("Arial", 14)).place(x=400, y=420)
+Button(frame_mid, text="Log in", command=switch_to_login,  bg="#007bff", fg="white",font=("Arial", 14)).place(x=400, y=420)
 
 root.mainloop()
 ########prratik is don####

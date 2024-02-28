@@ -85,18 +85,18 @@ def display_fare_window(pickup_location, destination_location, distance, fare, v
     Label(fare_window, text=f"{fare} NRP", font=("Arial", 12)).pack()
 
 root = Tk()
-root.title("Ride booking app")
+root.title("Ride booking System")
 root.geometry("800x700")
 
-# Set the background color of the root window
+
 root.configure(bg="light blue")  # Change background color to white
 
-lbl = Label(root, text="Ride Booking App", font=("Arial Bold", 40), bg="white" ) 
+lbl = Label(root, text="Ride Booking System", font=("Arial Bold", 40),bg="lightblue") 
 lbl.place(x=100, y=50)
-lbl_1 = Label(root, text="Instant Ride", font=("Arial", 10), bg="white")  
+lbl_1 = Label(root, text="Instant Ride", font=("Arial", 15),bg="lightblue")  
 lbl_1.place(x=10, y=150)
 
-vehicle_label = Label(root, text="Select your vehicle type", font=("Arial", 20), bg="white") 
+vehicle_label = Label(root, text="Select your vehicle type", font=("Arial", 20),bg="lightblue") 
 vehicle_label.place(x=100, y=220)
 
 # Create a variable to store the selected vehicle type
@@ -106,9 +106,9 @@ vehicle_option_menu = OptionMenu(root, vehicle_var, "", "Bike", "Car")
 vehicle_option_menu.config(width=10)
 vehicle_option_menu.place(x=450, y=220)
 
-pickup_label = Label(root, text="Pickup location", font=("Arial", 20), bg="white")  
+pickup_label = Label(root, text="Pickup location", font=("Arial", 20),bg="lightblue")  
 pickup_label.place(x=100, y=360)
-destination_label = Label(root, text="Destination", font=("Arial", 20), bg="white")
+destination_label = Label(root, text="Destination", font=("Arial", 20),bg="lightblue")
 destination_label.place(x=100, y=415)
 
 pickup = Entry(root, width=40)
@@ -117,16 +117,16 @@ pickup.place(x=300, y=365, height=35)
 destination = Entry(root, width=40)
 destination.place(x=300, y=420, height=35)
 
-help_button = Button(root, text="Help", command=lambda: print("Help"), bg="#007bff", fg="white")  # Change button color to blue and text color to white
+help_button = Button(root, text="Help", command=lambda: print("Help"), bg="#007bff", fg="white", font=("Arial", 20))  # Change button color to blue and text color to white
 help_button.place(x=5, y=650)
 
 # Define fare rates for bike and car
 fare_rate = {"Bike": 100, "Car": 200}
 
-book_button = Button(root, text="Book", command=book_ride, font=("Arial", 14), bg="#007bff", fg="white")  # Change button color to blue and text color to white
+book_button = Button(root, text="Book", command=book_ride, bg="#007bff", fg="white", font=("Arial", 20))  # Change button color to blue and text color to white
 book_button.place(x=400, y=500)
 
-home_button = Button(root, text="Home", command=home, bg="#007bff", fg="white")  # Change button color to blue and text color to white
-home_button.place(x=760, y=150)
+home_button = Button(root, text="Home", command=home, bg="#007bff", fg="white", font=("Arial", 20))  # Change button color to blue and text color to white
+home_button.place(x=700, y=150)
 
 root.mainloop()

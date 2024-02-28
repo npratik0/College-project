@@ -19,7 +19,7 @@ def next_page():
         import instantride1
     elif selected == "Chartered Ride":
         root.destroy()
-        import casualride
+        import charteredride
 
 def switch_to_login():
     messagebox.showinfo("Success", "Successfully Logged Out")
@@ -27,7 +27,7 @@ def switch_to_login():
     import login
 
 root = Tk()
-root.title("Ride Booking App")
+root.title("Ride Booking System")
 
 # Set window geometry and make it unchangeable
 root.geometry("800x500")
@@ -37,7 +37,7 @@ root.resizable(False, False)
 root.configure(bg="#f0f0f0")
 
 # Create the Ride Booking App text
-app_label = Label(root, text="Ride Booking App", font=("Arial", 36, "bold"), fg="#333333", bg="#f0f0f0")
+app_label = Label(root, text="Ride Booking System", font=("Arial", 36, "bold"), fg="#333333", bg="#f0f0f0")
 app_label.place(x=200, y=20)
 
 # Home label

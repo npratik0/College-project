@@ -40,7 +40,7 @@ def book_ride():
     lbl_fare.pack()
 
 root = Tk()
-root.title("Ride Booking App")
+root.title("Ride Booking System")
 root.geometry("800x700")
 root.configure(bg="lightblue")  # Set background color
 
@@ -58,7 +58,7 @@ return_date = DateEntry(root, width=12, background='darkblue', foreground='white
 return_date.place(x=250, y=255)
 
 # Labels
-lbl_1 = Label(root, text="Ride Booking App", font=("Arial Bold", 40), bg="lightblue")
+lbl_1 = Label(root, text="Ride Booking System", font=("Arial Bold", 40), bg="lightblue")
 lbl_1.place(x=100, y=5)
 
 lbl_2 = Label(root, text="Chartered Ride", font=("Arial", 15), bg="lightblue")
